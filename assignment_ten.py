@@ -11,7 +11,7 @@ myTarget.draw_target()
 
 while True:
     for event in pygame.event.get():
-        if event == QUIT:
+        if event.type == QUIT:
             pygame.quit()
             sys.exit()
         if event.type == MOUSEBUTTONDOWN:
