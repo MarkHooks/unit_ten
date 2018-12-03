@@ -9,6 +9,7 @@ pygame.display.set_caption("archery")
 myTarget = target.Target(mainSurface)
 myTarget.draw_target()
 
+times = 0
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -16,3 +17,8 @@ while True:
             sys.exit()
         if event.type == MOUSEBUTTONDOWN:
             myTarget.printMouseCoordinates(pygame.mouse.get_pos())
+            times += 1
+        if times >= 5:
+            pygame.quit()
+            sys.exit()
+
