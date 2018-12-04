@@ -19,6 +19,4 @@ while True:
             myTarget.printMouseCoordinates(pygame.mouse.get_pos())
             times += 1
         if times >= 5:
-            pygame.quit()
-            sys.exit()
-
+            MOUSEBUTTONDOWN = 0
