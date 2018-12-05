@@ -3,11 +3,17 @@ import math
 
 
 class Target:
-
+    """
+    this class is to create a target and keep track of the points
+    """
     def __init__(self, mainSurface):
+
         self.mainSurface = mainSurface
         self.mainSurface.fill((255, 255, 255))
+        # this is to set the total points to zero
+        self.points = 0
         pygame.init()
+
 
     def draw_target(self):
         """
@@ -26,7 +32,8 @@ class Target:
 
         pygame.display.update()
 
-    def printMouseCoordinates(self, position):
+
+    def add_points(self, position):
         """
         this is to get the points for the target
         :param position: this is to see where on the target they clicked
@@ -38,18 +45,18 @@ class Target:
         x_val = position[0]
         y_val = position[1]
         distance = math.sqrt((x_val - 450) ** 2 + ((y_val - 450) ** 2))
-        points = 0
-        if distance < 50:
-            points = points + 9
-        elif distance > 50 and distance < 100:
-            points = points + 7
-        elif distance > 100 and distance < 150:
-            points = points + 5
-        elif distance > 150 and distance < 200:
-            points = points + 3
-        elif distance > 200 and distance < 250:
-            points = points + 1
 
-        mouselable = mousefont.render(str(points), 1, (0, 0, 0))
+        if distance < 50:
+            self.points += 9
+        elif distance > 50 and distance < 100:
+            self.points += 7
+        elif distance > 100 and distance < 150:
+            self.points += 5
+        elif distance > 150 and distance < 200:
+            self.points += 3
+        elif distance > 200 and distance < 250:
+            self.points += 1
+
+        mouselable = mousefont.render(str(self.points), 1, (0, 0, 0))
         self.mainSurface.blit(mouselable, (30, 30))
         pygame.display.update()

@@ -1,3 +1,6 @@
+# Mark Hooks
+# 12/5/18
+# this program is to create a target game in pygame
 import pygame, sys
 from pygame.locals import*
 import target
@@ -16,7 +19,7 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == MOUSEBUTTONDOWN:
-            myTarget.printMouseCoordinates(pygame.mouse.get_pos())
+            myTarget.add_points(pygame.mouse.get_pos())
             times += 1
         if times >= 5:
             MOUSEBUTTONDOWN = 0
