@@ -8,6 +8,7 @@ pygame.display.set_caption("SSFS")
 
 myTarget = SSFS_logo.Logo(mainSurface)
 myTarget.draw_logo()
+myTarget.draw_words()
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
